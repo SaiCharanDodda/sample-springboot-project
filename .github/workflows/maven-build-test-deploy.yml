@@ -1,0 +1,46 @@
+name: Test & Build Using Java & Maven, publish test results
+on: 
+ push:
+   branches: 
+     - main
+     - testing
+ pull_request:
+    types: [ assigned, opened, synchronize, reopened ]
+
+jobs:
+  build-test-deploy: 
+       #uses: github-poc-ado/Reuseable-workflow/.github/workflows/framework.yml@main
+       uses: github-poc-ado/Reuseable-workflow/.github/workflows/build-push.yml@main
+       permissions:
+         checks: write
+         pull-requests: write
+         contents: read
+         #security-events: write
+         #actions: read
+       secrets:
+        # token: ${{ secrets.SECRET_TOKEN }}
+         REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+         REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+         AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }} 
+         REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
+         NAMESPACE: ${{ secrets.NAMESPACE }}
+         CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+         CLUSTER_RESOURCE_GROUP: ${{ secrets.CLUSTER_RESOURCE_GROUP }}
+         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+         AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+         AZURE_REPOSITORY: ${{ secrets.AZURE_REPOSITORY }}
+         AZURE_SERVICE_PRINCIPAL:  ${{ secrets. AZURE_SERVICE_PRINCIPAL }}
+         AZURE_SERVICE_PRINCIPAL_PASSWORD: ${{ secrets. AZURE_SERVICE_PRINCIPAL_PASSWORD }}
+       with:
+        java_version: '11'
+       
+        #CLUSTER_NAME: '${{ CLUSTER_NAME }}'
+        #CLUSTER_RESOURCE_GROUP: '${{ CLUSTER_RESOURCE_GROUP }}'
+        #NAMESPACE: '${{ NAMESPACE }}'
+       
+      
+
+
+         
+
+ 
