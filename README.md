@@ -10,4 +10,3 @@ We are adding CodeQL test reports. ##
 #
 "# sample-springboot-project" 
 
-##Sample edit
