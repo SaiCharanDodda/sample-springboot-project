@@ -11,3 +11,4 @@ We are adding CodeQL test reports. ##
 "# sample-springboot-project" 
 
 ### Test Comment 1
+### Test Comment 2
